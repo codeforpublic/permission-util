@@ -1,0 +1,17 @@
+{
+  "name": "data-filter-util",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "joi": "^14.3.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
+}
