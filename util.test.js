@@ -28,6 +28,9 @@ describe('util', () => {
     'data:id:nationalId': '1111100000111',
     'data:id:mobile': '0901234123',
     'data:id:email': 'we_are_hiring@cleverse.com',
+    'location:xxx': 'xxx',
+    'location:yyy:zzz': 'xxx',
+    'location:ttt': 'xxx',
   };
   it('should handle [data:*]', () => {
     const result = extractInfo(EXAMPLE_DATA, ['data:*']);
@@ -45,5 +48,12 @@ describe('util', () => {
   it('should match exact text [data:demographic:dob]', () => {
     const result = extractInfo(EXAMPLE_DATA, ['data:demographic:dob']);
     expect(result).toEqual({ 'data:demographic:dob': '1995-04-30' });
+  });
+  it('should match exact text (multi) [data:demographic:dob, location:xxx]', () => {
+    const result = extractInfo(EXAMPLE_DATA, ['data:demographic:dob', 'location:xxx']);
+    expect(result).toEqual({
+      'data:demographic:dob': '1995-04-30',
+      'location:xxx': 'xxx',
+    });
   });
 });
